@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import {
   getFirestore,
   collection,
-  serverTimestamp,
+  Timestamp,
   addDoc,
   onSnapshot,
   where,
@@ -45,7 +45,7 @@ class Chatroom {
       message: message,
       username: this.username,
       room: this.room,
-      created_at: serverTimestamp(),
+      created_at: Timestamp.fromDate(new Date()),
     };
     // save the chat document
     await addDoc(this.chats, chat);

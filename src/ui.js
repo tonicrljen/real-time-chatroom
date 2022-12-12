@@ -8,6 +8,9 @@ class ChatUI {
   constructor(list) {
     this.list = list;
   }
+  clear() {
+    this.list.innerHTML = "";
+  }
   render(data) {
     const createdAt = data.created_at.toDate();
     const when = formatDistance(createdAt, Date.now(), {
